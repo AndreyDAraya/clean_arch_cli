@@ -43,11 +43,12 @@ class CreateUseCaseCommand extends Command<void> {
     _logger.info(
         'Creating use case: ${rc.snakeCase} in feature: ${featureRc.snakeCase}');
 
-    final featureDir =
-        Directory(path.join('lib', 'features', featureRc.snakeCase));
+    final currentDir = Directory.current;
+    final featureDir = Directory(
+        path.join(currentDir.path, 'lib', 'features', featureRc.snakeCase));
     if (!featureDir.existsSync()) {
       _logger.err('Feature ${featureRc.pascalCase} does not exist');
-      exit(1);
+      throw StateError('Feature ${featureRc.pascalCase} does not exist');
     }
 
     final useCaseFile = File(path.join(
@@ -79,7 +80,7 @@ class ${rc.pascalCase} {
       _logger.success('Use case ${rc.pascalCase} created successfully! 🎉');
     } else {
       _logger.err('Use case ${rc.pascalCase} already exists');
-      exit(1);
+      throw StateError('Use case ${rc.pascalCase} already exists');
     }
   }
 }

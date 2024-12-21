@@ -43,11 +43,12 @@ class CreateEntityCommand extends Command<void> {
     _logger.info(
         'Creating entity: ${rc.snakeCase} in feature: ${featureRc.snakeCase}');
 
-    final featureDir =
-        Directory(path.join('lib', 'features', featureRc.snakeCase));
+    final currentDir = Directory.current;
+    final featureDir = Directory(
+        path.join(currentDir.path, 'lib', 'features', featureRc.snakeCase));
     if (!featureDir.existsSync()) {
       _logger.err('Feature ${featureRc.pascalCase} does not exist');
-      exit(1);
+      throw StateError('Feature ${featureRc.pascalCase} does not exist');
     }
 
     final entityFile = File(path.join(
@@ -105,7 +106,7 @@ class ${rc.pascalCase}Model extends ${rc.pascalCase} {
           'Entity ${rc.pascalCase} and its model created successfully! 🎉');
     } else {
       _logger.err('Entity ${rc.pascalCase} already exists');
-      exit(1);
+      throw StateError('Entity ${rc.pascalCase} already exists');
     }
   }
 }

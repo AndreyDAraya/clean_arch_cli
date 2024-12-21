@@ -35,14 +35,17 @@ class CreateFeatureCommand extends Command<void> {
     _logger.info('Creating feature: ${rc.snakeCase}');
 
     // Create feature directory structure
-    final libDir = Directory('lib');
+    final currentDir = Directory.current;
+    final libDir = Directory(path.join(currentDir.path, 'lib'));
     if (!libDir.existsSync()) {
       _logger
           .err('This command must be run from the root of a Flutter project');
-      exit(1);
+      throw StateError(
+          'This command must be run from the root of a Flutter project');
     }
 
-    final featureDir = Directory(path.join('lib', 'features', rc.snakeCase));
+    final featureDir =
+        Directory(path.join(libDir.path, 'features', rc.snakeCase));
     _createDirectory(featureDir);
 
     // Create layers
