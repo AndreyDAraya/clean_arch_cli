@@ -1,7 +1,10 @@
 name: clean_arch_cli
-description: A CLI tool for generating Clean Architecture structure in Flutter projects.
+description: A powerful CLI tool for generating Clean Architecture structure in Flutter projects. Easily create features, use cases, and entities following Clean Architecture principles.
 version: 1.0.0
 repository: https://github.com/AndreyDAraya/clean_arch_cli
+homepage: https://github.com/AndreyDAraya/clean_arch_cli
+documentation: https://github.com/AndreyDAraya/clean_arch_cli/blob/main/README.md
+issue_tracker: https://github.com/AndreyDAraya/clean_arch_cli/issues
 
 environment:
   sdk: ^3.6.0
@@ -23,3 +26,14 @@ dev_dependencies:
 
 executables:
   fclean: clean_arch_cli
+
+platforms:
+  linux:
+  macos:
+  windows:
+
+topics:
+  - clean-architecture
+  - cli
+  - code-generation
+  - flutter

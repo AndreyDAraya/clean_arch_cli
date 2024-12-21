@@ -1,43 +1,32 @@
-# Changelog
+## 1.0.0
 
-All notable changes to this project will be documented in this file.
-
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
-
-## [1.0.0] - 2024-01-20
-
-### Added
-
-- Initial release of Flutter Clean CLI
-- Feature generation command with Clean Architecture structure
-- Use case generation command with repository integration
-- Entity generation command with corresponding data models
-- BLoC setup automation
-- Comprehensive documentation
+Initial release of clean_arch_cli 🎉
 
 ### Features
 
-- Complete Clean Architecture structure generation
-- Automatic folder structure creation
-- Template-based code generation
-- Command-line interface with help documentation
+- Generate complete feature structure with Clean Architecture layers:
+  - Data layer (datasources, models, repositories)
+  - Domain layer (entities, repositories, use cases)
+  - Presentation layer (bloc, pages, widgets)
+- Create use cases with proper repository integration and error handling
+- Generate entities with corresponding data models and JSON serialization
+- Automatic BLoC files generation for state management
+- Command-line interface with intuitive commands and options
 
-### Technical Details
+### Commands
 
-- Built with Dart SDK >=3.6.0
-- Uses mason_logger for beautiful CLI output
-- Implements args package for command parsing
-- Uses recase for proper naming conventions
-- Includes test suite setup
+- `feature`: Create a new feature with complete Clean Architecture structure
+- `usecase`: Add a new use case to an existing feature
+- `entity`: Create a new entity with its corresponding data model
 
-## [Unreleased]
+### Dependencies
 
-### Planned
-
-- Interactive mode for feature creation
-- Custom template support
-- Configuration file for project preferences
-- Automatic dependency injection setup
-- Generate unit tests templates
-- Support for different state management solutions
+- args: ^2.4.2 - Command line argument parsing
+- mason_logger: ^0.3.1 - Beautiful logging output
+- path: ^1.9.0 - Path manipulation utilities
+- recase: ^4.1.0 - String case conversion
+- yaml: ^3.1.2 - YAML file handling
+- cli_completion: ^0.5.1 - CLI command completion
+- collection: ^1.18.0 - Collection utilities
+- equatable: ^2.0.5 - Value equality
+- dartz: ^0.10.1 - Functional programming features
